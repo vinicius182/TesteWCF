@@ -1,0 +1,11 @@
+C:\Users\Vinicius\source\repos\ToDo\ToDo.Service\bin\ToDo.Service.dll.config
+C:\Users\Vinicius\source\repos\ToDo\ToDo.Service\bin\ToDo.Service.dll
+C:\Users\Vinicius\source\repos\ToDo\ToDo.Service\bin\ToDo.Service.pdb
+C:\Users\Vinicius\source\repos\ToDo\ToDo.Service\bin\EntityFramework.dll
+C:\Users\Vinicius\source\repos\ToDo\ToDo.Service\bin\EntityFramework.SqlServer.dll
+C:\Users\Vinicius\source\repos\ToDo\ToDo.Service\bin\EntityFramework.xml
+C:\Users\Vinicius\source\repos\ToDo\ToDo.Service\bin\EntityFramework.SqlServer.xml
+C:\Users\Vinicius\source\repos\ToDo\ToDo.Service\obj\Debug\ToDo.Service.csprojAssemblyReference.cache
+C:\Users\Vinicius\source\repos\ToDo\ToDo.Service\obj\Debug\ToDo.Service.csproj.CopyComplete
+C:\Users\Vinicius\source\repos\ToDo\ToDo.Service\obj\Debug\ToDo.Service.dll
+C:\Users\Vinicius\source\repos\ToDo\ToDo.Service\obj\Debug\ToDo.Service.pdb
