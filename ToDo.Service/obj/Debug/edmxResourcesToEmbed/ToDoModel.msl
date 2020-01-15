@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="TODOModelStoreContainer" CdmEntityContainer="TodoEntities">
+  <EntityContainerMapping StorageEntityContainer="TODOModelStoreContainer" CdmEntityContainer="TODOEntities">
     <EntitySetMapping Name="Tasks">
       <EntityTypeMapping TypeName="TODOModel.Tasks">
         <MappingFragment StoreEntitySet="Tasks">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="description" ColumnName="description" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

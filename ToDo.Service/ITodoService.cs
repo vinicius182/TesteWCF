@@ -18,10 +18,10 @@ namespace ToDo.Service
         Tasks GetTaskById(int id);
 
         [OperationContract]
-        int AddTask(string title);
+        int AddTask(string title, string description);
 
         [OperationContract]
-        int UpdateTask(int id, string title);
+        int UpdateTask(int id, string title, string description);
 
         [OperationContract]
         int DeleteTaskById(int id);

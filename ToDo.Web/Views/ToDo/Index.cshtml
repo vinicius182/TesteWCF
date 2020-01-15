@@ -1,34 +1,43 @@
 ﻿@model IEnumerable<ToDo.Web.Models.Task>
+@*@model ToDo.Web.Models.Task*@
+
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+@using (Html.BeginForm())
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.title)
-        </th>
-        <th></th>
-    </tr>
+{
+    @Html.AntiForgeryToken()
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Tasks</h5>
+            <div class="add-items d-flex">
+                @Html.ActionLink("Criar Nova Task", "Create",null, new { @class = "btn btn-primary btn-large" })
+            </div>
+            <div class="list-wrapper">
+                <ul class="d-flex flex-column-reverse todo-list">
+                    @foreach (var item in Model)
+                    {
+                    <li>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input class="checkbox" type="checkbox" />
+                                @Html.DisplayFor(modelItem => item.title)
+                                <i class="input-helper"></i>
+                            </label>
+                        </div>
+                        @*<i class="remove mdi mdi-close-circle-outline"></i>*@
+                        @Html.ActionLink("Editar", "Edit", new { id = item.id }, new { @class = "remove" })&nbsp
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.id })&nbsp
+                        @Html.ActionLink("Apagar", "Delete", new { id = item.id })&nbsp
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.title)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
+                    </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
 }
-
-</table>

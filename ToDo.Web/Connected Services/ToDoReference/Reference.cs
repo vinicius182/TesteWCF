@@ -23,6 +23,9 @@ namespace ToDo.Web.ToDoReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string descriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int idField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -35,6 +38,19 @@ namespace ToDo.Web.ToDoReference {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string description {
+            get {
+                return this.descriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.descriptionField, value) != true)) {
+                    this.descriptionField = value;
+                    this.RaisePropertyChanged("description");
+                }
             }
         }
         
@@ -91,16 +107,16 @@ namespace ToDo.Web.ToDoReference {
         System.Threading.Tasks.Task<ToDo.Web.ToDoReference.Tasks> GetTaskByIdAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITodoService/AddTask", ReplyAction="http://tempuri.org/ITodoService/AddTaskResponse")]
-        int AddTask(string title);
+        int AddTask(string title, string description);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITodoService/AddTask", ReplyAction="http://tempuri.org/ITodoService/AddTaskResponse")]
-        System.Threading.Tasks.Task<int> AddTaskAsync(string title);
+        System.Threading.Tasks.Task<int> AddTaskAsync(string title, string description);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITodoService/UpdateTask", ReplyAction="http://tempuri.org/ITodoService/UpdateTaskResponse")]
-        int UpdateTask(int id, string title);
+        int UpdateTask(int id, string title, string description);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITodoService/UpdateTask", ReplyAction="http://tempuri.org/ITodoService/UpdateTaskResponse")]
-        System.Threading.Tasks.Task<int> UpdateTaskAsync(int id, string title);
+        System.Threading.Tasks.Task<int> UpdateTaskAsync(int id, string title, string description);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITodoService/DeleteTaskById", ReplyAction="http://tempuri.org/ITodoService/DeleteTaskByIdResponse")]
         int DeleteTaskById(int id);
@@ -152,20 +168,20 @@ namespace ToDo.Web.ToDoReference {
             return base.Channel.GetTaskByIdAsync(id);
         }
         
-        public int AddTask(string title) {
-            return base.Channel.AddTask(title);
+        public int AddTask(string title, string description) {
+            return base.Channel.AddTask(title, description);
         }
         
-        public System.Threading.Tasks.Task<int> AddTaskAsync(string title) {
-            return base.Channel.AddTaskAsync(title);
+        public System.Threading.Tasks.Task<int> AddTaskAsync(string title, string description) {
+            return base.Channel.AddTaskAsync(title, description);
         }
         
-        public int UpdateTask(int id, string title) {
-            return base.Channel.UpdateTask(id, title);
+        public int UpdateTask(int id, string title, string description) {
+            return base.Channel.UpdateTask(id, title, description);
         }
         
-        public System.Threading.Tasks.Task<int> UpdateTaskAsync(int id, string title) {
-            return base.Channel.UpdateTaskAsync(id, title);
+        public System.Threading.Tasks.Task<int> UpdateTaskAsync(int id, string title, string description) {
+            return base.Channel.UpdateTaskAsync(id, title, description);
         }
         
         public int DeleteTaskById(int id) {

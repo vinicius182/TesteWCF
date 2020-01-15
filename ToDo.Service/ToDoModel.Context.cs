@@ -13,10 +13,10 @@ namespace ToDo.Service
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TodoEntities : DbContext
+    public partial class TODOEntities : DbContext
     {
-        public TodoEntities()
-            : base("name=TodoEntities")
+        public TODOEntities()
+            : base("name=TODOEntities")
         {
         }
     

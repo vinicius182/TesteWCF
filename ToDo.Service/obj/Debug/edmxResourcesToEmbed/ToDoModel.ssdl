@@ -6,6 +6,7 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="title" Type="varchar" MaxLength="255" />
+    <Property Name="description" Type="varchar" MaxLength="255" />
   </EntityType>
   <EntityContainer Name="TODOModelStoreContainer">
     <EntitySet Name="Tasks" EntityType="Self.Tasks" Schema="dbo" store:Type="Tables" />

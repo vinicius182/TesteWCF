@@ -14,7 +14,7 @@ namespace ToDo.Service
         public List<Tasks> GetTasks()
         {
             List<Tasks> taskList = new List<Tasks>();
-            TodoEntities tdDb = new TodoEntities();
+            TODOEntities tdDb = new TODOEntities();
             var taskResult = from tk in tdDb.Tasks select tk;
 
             foreach(var task in taskResult)
@@ -22,6 +22,7 @@ namespace ToDo.Service
                 Tasks tsk = new Tasks();
                 tsk.id = task.id;
                 tsk.title = task.title;
+                tsk.description = task.description;
 
                 taskList.Add(tsk);
             }
@@ -31,23 +32,25 @@ namespace ToDo.Service
 
         public Tasks GetTaskById(int id)
         {
-            TodoEntities tdDb = new TodoEntities();
+            TODOEntities tdDb = new TODOEntities();
             var taskResult = from tk in tdDb.Tasks where tk.id == id select tk;
             Tasks tsk = new Tasks();
             foreach (var task in taskResult)
             {
                 tsk.id = task.id;
                 tsk.title = task.title;
+                tsk.description = task.description;
             }
 
             return tsk;
         }
 
-        public int AddTask(string title)
+        public int AddTask(string title, string description)
         {
-            TodoEntities tdDb = new TodoEntities();
+            TODOEntities tdDb = new TODOEntities();
             Tasks tsk = new Tasks();
             tsk.title = title;
+            tsk.description = description;
 
             tdDb.Tasks.Add(tsk);
 
@@ -56,12 +59,13 @@ namespace ToDo.Service
             return retVal;
         }
 
-        public int UpdateTask(int id, string title)
+        public int UpdateTask(int id, string title, string description)
         {
-            TodoEntities tdDb = new TodoEntities();
+            TODOEntities tdDb = new TODOEntities();
             Tasks tsk = new Tasks();
             tsk.id = id;
             tsk.title = title;
+            tsk.description = description;
 
             tdDb.Entry(tsk).State = System.Data.Entity.EntityState.Modified;
 
@@ -72,7 +76,7 @@ namespace ToDo.Service
 
         public int DeleteTaskById(int id)
         {
-            TodoEntities tdDb = new TodoEntities();
+            TODOEntities tdDb = new TODOEntities();
             Tasks tsk = new Tasks();
             tsk.id = id;
 

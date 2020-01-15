@@ -21,6 +21,7 @@ namespace ToDo.Web.Controllers
                 Task tk = new Task();
                 tk.id = task.id;
                 tk.title = task.title;
+                tk.description = task.description;
 
                 tkList.Add(tk);
             }
@@ -34,6 +35,7 @@ namespace ToDo.Web.Controllers
             Task tk = new Task();
             tk.id = tdList.id;
             tk.title = tdList.title;
+            tk.description = tdList.description;
 
             if (tk == null)
             {
@@ -52,8 +54,9 @@ namespace ToDo.Web.Controllers
         {
             Task tk = new Task();
             tk.title = tkModel.title;
+            tk.description = tkModel.description;
 
-            tdService.AddTask(tk.title);
+            tdService.AddTask(tk.title, tk.description);
 
             return RedirectToAction("Index", "ToDo");
         }
@@ -76,6 +79,7 @@ namespace ToDo.Web.Controllers
             Task tk = new Task();
             tk.id = tdList.id;
             tk.title = tdList.title;
+            tk.description = tdList.description;
 
             if(tk == null)
             {
@@ -91,8 +95,9 @@ namespace ToDo.Web.Controllers
             Task tk = new Task();
             tk.id = tkModel.id;
             tk.title = tkModel.title;
+            tk.description = tkModel.description;
 
-            int retVal = tdService.UpdateTask(tk.id, tk.title);
+            int retVal = tdService.UpdateTask(tk.id, tk.title, tk.description);
             if(retVal > 0)
             {
                 return RedirectToAction("Index", "ToDo");
